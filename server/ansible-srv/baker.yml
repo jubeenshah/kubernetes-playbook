@@ -1,0 +1,5 @@
+name: ansible-srv-kubernetes
+vm:
+  ip: 192.168.11.11
+tools:
+  - ansible

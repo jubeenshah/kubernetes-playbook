@@ -1,0 +1,15 @@
+- name: Configuring localhost
+  hosts: localhost
+  become: true
+  gather_facts: true
+  roles: 
+    - docker
+    - kubernetes
+
+- name: Configuring nodes
+  hosts: all
+  become: true
+  gather_facts: true
+  roles:
+    - docker
+    - kubernetes-nodes

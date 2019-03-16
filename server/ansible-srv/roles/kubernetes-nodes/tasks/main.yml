@@ -1,0 +1,55 @@
+---
+# tasks file for kubernetes-nodes
+- name: Including variables.yml
+  include_vars:
+    file: variables.yml
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+  tags:
+    - Update apt packages
+
+- name: Adding the apt signing key for kubernetes
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  tags:
+    - Update apt packages
+
+- name: Installing apt-transport-https
+  apt:
+    name: apt-transport-https
+  tags:
+    - Installing dependencies
+
+- name: Adding repository for kubernetes
+  become: true
+  apt_repository:
+    repo: 'deb http://apt.kubernetes.io/ kubernetes-xenial main'
+    filename: kubernetes
+  tags:
+    - Update apt packages 
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+  tags:
+    - Update apt packages
+
+- name: Installing apt-transport-https
+  apt:
+    name: ['kubeadm', 'kubectl']
+  tags:
+    - Installing dependencies
+
+- name: Booting up service
+  systemd:
+    name: kubelet
+    state: started
+    enabled: true
+
