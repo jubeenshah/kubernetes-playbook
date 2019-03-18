@@ -1,5 +1,6 @@
 name: ansible-srv-kubernetes
 vm:
+  memory: 2048
   ip: 192.168.11.11
 tools:
   - ansible
