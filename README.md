@@ -3,7 +3,7 @@
 ## Table of Content
 1. Prerequisites
 2. Installing and Setup (ansible)
-3. [Running a HTTP server](running-a-http-server-nginx)
+3. [Running a HTTP server](#running-a-http-server-nginx)
 
 
 ### Running a HTTP server (nginx)
