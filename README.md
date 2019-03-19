@@ -3,7 +3,7 @@
 ## Table of Content
 1. Prerequisites
 2. Installing and Setup (ansible)
-3. [Running a HTTP server](running-a-http-server)
+3. [Running a HTTP server](#running-a-http-server-nginx)
 
 
 ### Running a HTTP server (nginx)
@@ -16,7 +16,7 @@ $ kubectl run <replication controller name> --image=<image-name> --replicas=<num
 
 The following example will create two replicas with the name `my-first-nginx` from the nginx image and expose port `80`. We can deploy one or more containers in what is referred to as a `pod`. In the following case, we will deploy one container per pod. If the image, doesn't exist locally, one will be pulled from `Docker-Hub`
 
-```shell
+```shellserver
 $ kubectl run my-first-nginx --image=nginx --replicas=2 --port=80
 
 deployment.apps/my-first-nginx created
