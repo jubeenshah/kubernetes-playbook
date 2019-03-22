@@ -55,7 +55,7 @@
 
 - name: Kubeadm reset and init
   become: true
-  shell: kubeadm reset -f; kubeadm init --apiserver-advertise-address="192.168.11.11"
+  shell: kubeadm reset -f; kubeadm init --apiserver-advertise-address="192.168.11.11" --pod-network-cidr 10.1.0.0/16
   register: kubeadmout
 
 - name: kubeadm output

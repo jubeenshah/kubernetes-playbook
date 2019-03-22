@@ -1,4 +1,4 @@
 name: kubernetes-srv
 vm:
   memory: 2048
-  ip: 192.168.31.12
+  ip: 192.168.31.112
